@@ -1,7 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"log"
+
+	"github.com/phadeyev/wschat/server"
+)
 
 func main() {
-	fmt.Println("init")
+	serv := server.New()
+	if err := serv.Start(); err != nil {
+		log.Fatalf("Error starting server: %v", err)
+	}
 }
